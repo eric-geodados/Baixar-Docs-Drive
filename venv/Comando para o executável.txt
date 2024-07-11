@@ -1,0 +1,1 @@
+pyinstaller --onefile --name="Baixador de Arquivos do Drive" --icon=icone.ico baixador_arquivos.py
