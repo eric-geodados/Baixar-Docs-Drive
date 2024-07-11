@@ -43,6 +43,8 @@ class BaixadorBot:
 
         driver.quit()
 
+
+# EXIBIÇÕES NO TERMINAL
 print("=-"* 25)
 print("BAIXADOR DE ARQUIVOS DO DRIVE")
 print("=-"* 25)
