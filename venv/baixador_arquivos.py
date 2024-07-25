@@ -29,33 +29,34 @@ class BaixadorBot:
                 senha_presente = True
             except NoSuchElementException:
                 print("Elemento não encontrado")
+                senha_presente = False
                 
             if senha_presente:
                 senha_element.send_keys(self.senha)
                 senha_element.send_keys(Keys.RETURN)
                 time.sleep(3)
-                
-                # Escolher pasta desejada
-                driver.find_element(By.XPATH, '//*[text()="' + self.pasta + '"]').click()
-                time.sleep(5)
 
-                # Baixar os arquivos na pasta
-                driver.find_element(By.XPATH, '//button[@data-automationid="downloadCommand"]').click()
-                time.sleep(80)
-            
-                downloads_path = os.path.join(os.path.expanduser('~'), 'Downloads')
-                os.startfile(downloads_path)
-            else:
-                # Escolher pasta desejada
-                driver.find_element(By.XPATH, '//*[text()="' + self.pasta + '"]').click()
-                time.sleep(5)
+            #     # Escolher pasta desejada
+            #     driver.find_element(By.XPATH, '//*[text()="' + self.pasta + '"]').click()
+            #     time.sleep(5)
 
-                # Baixar os arquivos na pasta
-                driver.find_element(By.XPATH, '//button[@data-automationid="downloadCommand"]').click()
-                time.sleep(80)
-            
-                downloads_path = os.path.join(os.path.expanduser('~'), 'Downloads')
-                os.startfile(downloads_path)
+            #     # Baixar os arquivos na pasta
+            #     driver.find_element(By.XPATH, '//button[@data-automationid="downloadCommand"]').click()
+            #     time.sleep(80)
+
+            #     downloads_path = os.path.join(os.path.expanduser('~'), 'Downloads')
+            #     os.startfile(downloads_path)
+            # else:
+            # Escolher pasta desejada
+            driver.find_element(By.XPATH, '//*[text()="' + self.pasta + '"]').click()
+            time.sleep(5)
+
+            # Baixar os arquivos na pasta
+            driver.find_element(By.XPATH, '//button[@data-automationid="downloadCommand"]').click()
+            time.sleep(80)
+        
+            downloads_path = os.path.join(os.path.expanduser('~'), 'Downloads')
+            os.startfile(downloads_path)
 
         except Exception as e:
             print(f'Ocorreu um erro: {e}')
@@ -74,7 +75,7 @@ print("-"* 50)
 
 input_site = input(str('Link do Sharepoint: ')).strip()
 print("-"* 50)
-input_senha = input(str('Senha de acesso: ')).strip()
+input_senha = input(str('Senha de acesso (Caso haja): ')).strip()
 print("-"* 50)
 input_pasta = input(str('Nome da pasta que deseja baixar: ')).strip()
 
